@@ -46,6 +46,8 @@ func _process(delta: float) -> void:
 		text.set_text("God speed, Operator. The war depends on you. Command out.")
 		tweening.play("TweenText")
 		sfx.play()
+		
+		#MEEEEEP
 
 	if Input.is_action_just_pressed("Dialogue") and textline == 6:
 		get_tree().change_scene_to_file("res://node_2d.tscn")
