@@ -1,0 +1,166 @@
+[gd_scene load_steps=14 format=3 uid="uid://bk10yp7r80m7g"]
+
+[ext_resource type="Texture2D" uid="uid://b4065hql5vi5q" path="res://sketch1759248122562.png" id="1_ibfn2"]
+[ext_resource type="Script" path="res://Intro Scene/IntroDialogueScript.gd" id="2_eihl6"]
+[ext_resource type="AudioStream" uid="uid://j0gajmj31m2k" path="res://Intro Scene/Typewriter Sound.wav" id="2_loqcd"]
+[ext_resource type="Texture2D" uid="uid://b14tennne4hvg" path="res://Down.png" id="2_uakfw"]
+[ext_resource type="Texture2D" uid="uid://hnnmv06dq3v1" path="res://Up.png" id="3_63g3e"]
+[ext_resource type="Texture2D" uid="uid://1kh6arxudsyj" path="res://sketch1759748468960.png" id="4_5kxvh"]
+[ext_resource type="LabelSettings" uid="uid://bcqkdvslleoab" path="res://Intro Scene/TextBoxes.tres" id="4_qiutd"]
+
+[sub_resource type="Animation" id="Animation_jwoje"]
+resource_name = "FadeIn"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ctbhw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w15ak"]
+_data = {
+"FadeIn": SubResource("Animation_jwoje"),
+"RESET": SubResource("Animation_ctbhw")
+}
+
+[sub_resource type="Animation" id="Animation_3o0m6"]
+resource_name = "TweenText"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ri31o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_crkoc"]
+_data = {
+"RESET": SubResource("Animation_ri31o"),
+"TweenText": SubResource("Animation_3o0m6")
+}
+
+[node name="Intro" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w15ak")
+}
+autoplay = "FadeIn"
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(963, 540.5)
+scale = Vector2(1.00104, 1.00463)
+texture = ExtResource("1_ibfn2")
+
+[node name="Typewriter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_loqcd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -34.0
+offset_top = -15.0
+offset_right = 1940.0
+offset_bottom = 1109.0
+color = Color(0, 0, 0, 1)
+
+[node name="Textbox" type="Node" parent="."]
+script = ExtResource("2_eihl6")
+
+[node name="Sketch1759748468960" type="Sprite2D" parent="Textbox"]
+position = Vector2(958, 530.875)
+scale = Vector2(0.972396, 0.955787)
+texture = ExtResource("4_5kxvh")
+
+[node name="Label" type="Label" parent="Textbox"]
+custom_minimum_size = Vector2(1, 1)
+offset_left = 120.0
+offset_top = 315.0
+offset_right = 1840.0
+offset_bottom = 734.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Echo Station, come in. Do you read? Use the Morse Code machine to respond. Over."
+label_settings = ExtResource("4_qiutd")
+autowrap_mode = 2
+clip_text = true
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Textbox"]
+libraries = {
+"": SubResource("AnimationLibrary_crkoc")
+}
+
+[node name="Button" type="Button" parent="."]
+offset_left = 858.0
+offset_top = 685.0
+offset_right = 994.0
+offset_bottom = 852.0
+
+[node name="Down" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(962.25, 545)
+scale = Vector2(1.40623, 1.40625)
+texture = ExtResource("2_uakfw")
+
+[node name="Up" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(962, 545)
+texture = ExtResource("3_63g3e")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+light_mask = 7
+visibility_layer = 31
+offset_right = 1930.0
+offset_bottom = 1088.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="animation_finished" from="Textbox/AnimationPlayer" to="Textbox" method="_on_animation_finished"]
+[connection signal="button_down" from="Button" to="Textbox" method="_on_button_button_down"]
+[connection signal="button_up" from="Button" to="Textbox" method="_on_button_button_up"]
+[connection signal="pressed" from="Button" to="Textbox" method="_on_button_pressed"]

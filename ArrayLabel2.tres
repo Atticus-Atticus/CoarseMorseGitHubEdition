@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dibtr44blk6sn"]
+
+[ext_resource type="FontFile" uid="uid://crjbefv2wkp6c" path="res://XTypewriter-Regular.ttf" id="1_fchum"]
+
+[resource]
+font = ExtResource("1_fchum")
+font_size = 37

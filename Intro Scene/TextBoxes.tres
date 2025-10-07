@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bcqkdvslleoab"]
+
+[ext_resource type="FontFile" uid="uid://crjbefv2wkp6c" path="res://XTypewriter-Regular.ttf" id="1_f53g3"]
+
+[resource]
+line_spacing = 40.0
+font = ExtResource("1_f53g3")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
