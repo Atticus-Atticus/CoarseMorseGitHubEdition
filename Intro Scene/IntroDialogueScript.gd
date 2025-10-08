@@ -2,6 +2,7 @@ extends Node
 
 @onready var tweening = $AnimationPlayer
 @onready var text = $Label
+@onready var arrow = $Label2
 
 @onready var pressed = $"../Down"
 @onready var not_pressed = $"../Up"
@@ -11,11 +12,14 @@ extends Node
 var textline = 0
 
 func _ready() -> void:
+	arrow.hide()
 	pressed.hide()
 	await get_tree().create_timer(3.5).timeout
 	$"../CanvasLayer".queue_free()
 	tweening.play("TweenText")
 	sfx.play()
+	await get_tree().create_timer(3).timeout
+	arrow.show()
 
 func _on_animation_finished(anim_name: StringName) -> void:
 	textline += 1
@@ -26,6 +30,7 @@ func _process(delta: float) -> void:
 		text.set_text("Ah, there you are, Echo Station! About damn time. You must be the new Operator. Welcome to the front. Or near enough to smell it.")
 		tweening.play("TweenText")
 		sfx.play()
+		arrow.hide()
 
 	if Input.is_action_just_pressed("Dialogue") and textline == 2:
 		text.set_text("Your orders are simple, but vital: Command writes the code words, and you make sure our boys hear them. Every dash and every dot could be the difference between victory and defeat.")
