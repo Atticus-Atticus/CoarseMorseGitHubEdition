@@ -43,13 +43,27 @@ func _process(delta: float) -> void:
 		sfx.play()
 
 	if Input.is_action_just_pressed("Dialogue") and textline == 5:
+		text.set_text("Encode each letter at a time. When you successfully encode a letter it will appear on the ride side of the top bar. If you make a mistake, give it a second to reset before trying again.")
+		tweening.play("TweenText")
+		sfx.play()
+
+#oh your being paid for this. and have to pay rent to us.
+	if Input.is_action_just_pressed("Dialogue") and textline == 6:
+		text.set_text("By the way, since we're paying you to be here, you need to pay us a rent for the equipment. If you fail to pay this rent then you will be replaced.")
+		tweening.play("TweenText")
+		sfx.play()
+
+	if Input.is_action_just_pressed("Dialogue") and textline == 7:
 		text.set_text("God speed, Operator. The war depends on you. Command out.")
 		tweening.play("TweenText")
 		sfx.play()
-		
-		#MEEEEEP
+	
+	if Input.is_action_just_pressed("Dialogue") and textline == 8:
+		text.set_text("Oh, and ignore any resistance messages. We won't pay you for those messages.")
+		tweening.play("TweenText")
+		sfx.play()
 
-	if Input.is_action_just_pressed("Dialogue") and textline == 6:
+	if Input.is_action_just_pressed("Dialogue") and textline == 9:
 		get_tree().change_scene_to_file("res://node_2d.tscn")
 
 

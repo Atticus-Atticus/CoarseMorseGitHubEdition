@@ -6,13 +6,15 @@ extends Node2D
 @onready var beep = $AudioStreamPlayer
 @onready var outputmessage = $Output
 @onready var textoutput = $Output2
+@onready var alarm = $Alarm
+@onready var money = $money
 
 var time_of_day: int
 var timer : Array[float] = [10, 100, 0, 0, 0]
 var goals_array : Array[String] = ["","","","",""]
 var goals_resistance : Array[bool] = [false,false,false,false,false]
 var firstday : Array[String] = ["4TH TO EAST","WTHR RAIN","RMMBR TRGGR DSPLN","10TH CAN BREAK","DONT WASTE FUEL","NO CURRENT OPPS","5 O CLOCK CHANGE","SAVE OR CUTS","NO FIGHTING","GNRL ON LEAVE","NO WARNINGS"]
-var firstday_res : Array[bool] = [false,false,true,true,true,true,true,true,true,true,true,true]
+var firstday_res : Array[bool] = [false,false,false,false,false,false,false,false,false,false,false,false]
 var goal_wordz = ""
 var goal_position : int
 var pos_in_goal : int
@@ -24,7 +26,7 @@ var difficulty: float = 2
 var fading = true
 var fading_timer: int
 var fad_modulation = 1
-var day = 1
+#var day = 1 moved to Globals.gd
 var foundspot = false
 var rng = RandomNumberGenerator.new()
 var transferpos : int
@@ -70,14 +72,42 @@ var morse_code_translator : Dictionary ={
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Globals.rent += 5
+	Globals.money - Globals.rent
 	$Background.modulate = Color(0,0,0)
 	
 	light.hide()
 	pressed.hide()
-	
+
+	if Globals.day == 2:
+		firstday = ["5B TO SE","7H TO NW","8B WAIT","2N WAIT","AWAIT ORDERS","MILL EXERSIZES","MEDIUM ALERT","1ST TO EXIME","PAY WILL ARRIVE","RMBR NEW POLICY"]
+		firstday_res = [false,false,false,false,false,false,false,false,false,false]
+
+	if Globals.day == 3:
+		firstday = ["WAR DECLARED","HIGH ALERT","UNITS ENGAGED","STAND UNTIL ORDERS","MORAL LOW","GNRL E E REMOVED","AVOID ENGAGEMNT","WAR DECLARED","WAR DECLARED","DFND THE HOME","HIGH ALERT","5N TO NE","7J TO SW","8N TO SE","2N WAIT","EASTER EGG"]
+		firstday_res = [false,false,false,false,true,true,true,false,false,false,false,true,false,false,true,true]
+
+	if Globals.day == 4:
+		firstday = ["3L HOLD POS","5F ADVANCE","SURE VICTORY","9A TO WEST FRONT","ADVANCE TO GROZNA","ADVANCE TO LEVZI","KEEP ADVANCE","ENGAGE ALL FORCE","HIGH MORAL","2D DFND","6D AVANCE","MORAL LOW","AZXYN IES","GWA KS OELE","KO L N ADE"]
+		firstday_res = [true,false,false,true,false,false,false,false,false,false,false,true,true,true,true,true,true]
+
+	if Globals.day == 5:
+		firstday = ["RSSTNCE NOT TOL","RAPID ADVANCE","SCORCH EARTH","ALL UNTS PUSH","SURE VICTORY","SURE VICTORY","2D PUSH","WARNING AMBUSHES","GUERRILLAS FOUND","RAIZE GROZNA","NO TOLERANCE","ALL UNITS PUSH","MWAD WASL OBIO","OKOL CLA PO","HOLD POSITION","LOW MORAL","GNRL M L REMOVED","1ST STAND DOWN"]
+		firstday_res = [false,false,false,false,false,false,false,true,false,false,false,false,true,true,true,true,true,true,true,true,true,true,true]
+
+	if Globals.day == 6:
+		firstday = ["EXTMINATE REBELS","KEEP PUSHING","MORAL HIGH","SURE VICTORY","SURE VICTORY","SURE VICTORY","HOLD GROZNA","HOLD EXIME","FOR THE HOME","NO STEP BACK","WE ARE WINNING","VICTORY ASSURED","TRNSFR FRM LEVZI","HIGH MORAL","LOW LOSSES","AWAIT ORDERS","EXIME WILL HOLD","LEVZI EVACUATED","PURGE DISSIDENTS","MORAL LOW","RETREAT","ENEMY AT TRASIVE","HIGH DESSERTION","AWDJ MK OAL","AMN YY UYO","MCNAP I JJNAWL","NAOLCS EOOP"]
+		firstday_res = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]
+
+	if Globals.day > 6:
+		firstday = ["5B TO SE","7H TO NW","8B WAIT","2N WAIT","AWAIT ORDERS","MILL EXERSIZES","MEDIUM ALERT","RSSTNCE NOT TOL","RAPID ADVANCE","SCORCH EARTH","ALL UNTS PUSH","SURE VICTORY","SURE VICTORY","2D PUSH","WARNING AMBUSHES","GUERRILLAS FOUND","RAIZE GROZNA","NO TOLERANCE","ALL UNITS PUSH","WAR DECLARED","HIGH ALERT","UNITS ENGAGED","STAND UNTIL ORDERS","AVOID ENGAGEMNT","WAR DECLARED","WAR DECLARED","DFND THE HOME","HIGH ALERT","5N TO NE","7J TO SW","8N TO SE","2N WAIT"]
+		firstday_res = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	money.text = str("£",Globals.money)
+
+
 	if not fading:
 		time_of_day += 1
 	
@@ -96,7 +126,7 @@ func _process(delta):
 				transferpos = round(rng.randf_range(0, firstday.size() - 1))
 				goals_array[I] = firstday[transferpos]
 				goals_resistance[I] = firstday_res[transferpos]
-				timer[I]= round(rng.randf_range(15*difficulty,45*difficulty))
+				timer[I]= round(rng.randf_range(27*difficulty,45*difficulty))
 				if I== 0 and not goals_resistance[I]:
 					$Array1.set_meta("Inview",true)
 					$Array1/Label.text = goals_array[I]
@@ -129,15 +159,15 @@ func _process(delta):
 					$"Resist Box5/Label".text = goals_array[I]
 
 
-
+#timers
 	timer[0] -= delta
 	$"Resist Box1/Label2".text = str(round(timer[0]))
 	$Array1/Label2.text = str(round(timer[0]))
 	if round(timer[0]* 10) == 0:
 		if goals_resistance[0] == true:
-			$"Resist Box5".set_meta("Inview",false)
+			$"Resist Box1".set_meta("Inview",false)
 		else:
-			$Array5.set_meta("Inview",false)
+			$Array1.set_meta("Inview",false)
 		if goals_array[0] == goal_wordz:
 			goal_wordz = ""
 			outputmessage.text = ""
@@ -176,7 +206,7 @@ func _process(delta):
 		goals_array[2] = ""
 
 	timer[3] -= delta
-	$"Resist Box3/Label2".text = str(round(timer[3]))
+	$"Resist Box4/Label2".text = str(round(timer[3]))
 	$Array4/Label2.text = str(round(timer[3]))
 	if round(timer[3]* 10) == 0:
 		if goals_resistance[4] == true:
@@ -210,15 +240,15 @@ func _process(delta):
 		timebetween += 0.01
 	if timebetween > difficulty :
 		if goal_wordz == "":
-			for i in 4:
+			for i in 5:
 				if goals_array[i] != "":
 					if outputmessage.text == morse_code_translator[goals_array[i][0]]:
 						goal_wordz = goals_array[i]
-
 						print(goal_wordz)
 						goal_position = i
 						textoutput.text = ""
 		if fading and outputmessage.text == " ━ ● ━ ━ ● ━ ● ━ ━ ● ●":
+			$Timer.start()
 			fading = false
 			fading_timer = 0
 			$Sprite2D2.set_meta("Inview",false)
@@ -229,9 +259,14 @@ func _process(delta):
 				textoutput.text  += goal_wordz[pos_in_goal]
 				outputmessage.text = ""
 				pos_in_goal += 1
+				if goals_resistance[0] != true:
+					Globals.money += 1
 				if pos_in_goal == goal_wordz.length() :
 					goal_wordz = ""
 					pos_in_goal = 0
+					if goals_resistance[0] != true:
+						Globals.money += 10
+						money.text = str(Globals.money)
 					goals_array[goal_position] = ""
 					if goal_position == 0:
 						$Array1.hide()
@@ -276,8 +311,6 @@ func _on_pressed() -> void:
 
 
 func _on_button_down() -> void:
-	
-	
 	light.show()
 	notpressed.hide()
 	pressed.show()
@@ -301,3 +334,9 @@ func _on_button_up() -> void:
 		outputmessage.text            +=  " ?"
 	timebetween = 0.001
 	
+
+
+func _on_timer_timeout() -> void:
+	alarm.play()
+	await get_tree().create_timer(2.7).timeout
+	get_tree().change_scene_to_file("res://end_of_day_scene.tscn")
