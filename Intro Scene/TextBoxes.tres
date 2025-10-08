@@ -3,7 +3,7 @@
 [ext_resource type="FontFile" uid="uid://crjbefv2wkp6c" path="res://XTypewriter-Regular.ttf" id="1_f53g3"]
 
 [resource]
-line_spacing = 35.0
+line_spacing = 36.0
 font = ExtResource("1_f53g3")
 font_size = 40
 font_color = Color(0, 0, 0, 1)
