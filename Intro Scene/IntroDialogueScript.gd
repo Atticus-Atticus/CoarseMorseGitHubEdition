@@ -23,7 +23,7 @@ func _on_animation_finished(anim_name: StringName) -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Dialogue") and textline == 1:
-		text.set_text("Ah, there you are, Echo Station! About damn time. You must be the new Operator. Welcome to the Border. Or near enough to smell it.")
+		text.set_text("Ah, there you are, Echo Station! About damn time. You must be the new Operator. Welcome to the front. Or near enough to smell it.")
 		tweening.play("TweenText")
 		sfx.play()
 
