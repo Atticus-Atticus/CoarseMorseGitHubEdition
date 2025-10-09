@@ -14,6 +14,11 @@ extends Node
 var textline = 0
 
 func _ready() -> void:
+	if Globals.day == 3:
+		$"Resist Msg".show()
+	else:
+		$"Resist Msg".hide()
+	
 	pressed.hide()
 	await get_tree().create_timer(3.5).timeout
 	$"../CanvasLayer".queue_free()

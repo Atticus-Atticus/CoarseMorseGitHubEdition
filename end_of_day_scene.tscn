@@ -1,11 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://3eu1c2gakons"]
+[gd_scene load_steps=15 format=3 uid="uid://3eu1c2gakons"]
 
 [ext_resource type="Script" path="res://EndOfDayScript.gd" id="1_ti30k"]
 [ext_resource type="Texture2D" uid="uid://1kh6arxudsyj" path="res://sketch1759748468960.png" id="2_ak8yy"]
 [ext_resource type="LabelSettings" uid="uid://bcqkdvslleoab" path="res://Intro Scene/TextBoxes.tres" id="3_8ac1f"]
 [ext_resource type="Texture2D" uid="uid://b14tennne4hvg" path="res://Down.png" id="4_8lgcx"]
+[ext_resource type="FontFile" uid="uid://crjbefv2wkp6c" path="res://XTypewriter-Regular.ttf" id="4_hlx6i"]
 [ext_resource type="AudioStream" uid="uid://j0gajmj31m2k" path="res://Intro Scene/Typewriter Sound.wav" id="4_l0s1v"]
 [ext_resource type="Texture2D" uid="uid://hnnmv06dq3v1" path="res://Up.png" id="5_blthv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nvuix"]
+font = ExtResource("4_hlx6i")
+font_size = 36
+font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_ri31o"]
 length = 0.001
@@ -165,6 +171,24 @@ autowrap_mode = 2
 clip_text = true
 visible_characters = 0
 visible_ratio = 0.0
+
+[node name="Resist Msg" type="Label" parent="Textbox"]
+custom_minimum_size = Vector2(1, 1)
+offset_left = 142.0
+offset_top = 696.0
+offset_right = 835.0
+offset_bottom = 1019.0
+rotation = -0.145434
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "Operator.
+We are The Resistance.
+This is a pointless war and has already caused too many loses.
+Encode and send our messages in black to change the outcome of this war for the better."
+label_settings = SubResource("LabelSettings_nvuix")
+autowrap_mode = 2
+clip_text = true
 
 [node name="Money" type="Label" parent="Textbox"]
 visible = false
