@@ -14,10 +14,6 @@ extends Node
 var textline = 0
 
 func _ready() -> void:
-	if not Globals.day == 3:
-		$Label.text = str("You have: £ " + str(Globals.money) + " You have paid £ " + str(Globals.rent) + "in rent. Press the telegraph machine to continue.")
-	else:
-		$Label.text = str("You have: £ " + str(Globals.money) + " You have paid £ " + str(Globals.rent) + "in rent. A strange man passes you some notes and tells you to send them. Press the telegraph machine to continue.")
 	pressed.hide()
 	await get_tree().create_timer(3.5).timeout
 	$"../CanvasLayer".queue_free()

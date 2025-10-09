@@ -8,7 +8,7 @@ extends Node
 @onready var not_pressed = $"../Up"
 
 @onready var sfx = $"../Typewriter"
-var showarrow = true
+
 var textline = 0
 
 func _ready() -> void:
@@ -19,8 +19,7 @@ func _ready() -> void:
 	tweening.play("TweenText")
 	sfx.play()
 	await get_tree().create_timer(3).timeout
-	if showarrow:
-		arrow.show()
+	arrow.show()
 
 func _on_animation_finished(anim_name: StringName) -> void:
 	textline += 1
@@ -28,7 +27,7 @@ func _on_animation_finished(anim_name: StringName) -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Dialogue") and textline == 1:
-		text.set_text("Ah, there you are, Echo Station! About damn time. You must be the new Operator. Welcome to the Border. Or near enough to smell it.")
+		text.set_text("Ah, there you are, Echo Station! About damn time. You must be the new Operator. Welcome to the front. Or near enough to smell it.")
 		tweening.play("TweenText")
 		sfx.play()
 		arrow.hide()
@@ -65,7 +64,7 @@ func _process(delta: float) -> void:
 		sfx.play()
 	
 	if Input.is_action_just_pressed("Dialogue") and textline == 8:
-		text.set_text("Oh, We will only pay you for our messages.")
+		text.set_text("Oh, and ignore any resistance messages. We won't pay you for those messages.")
 		tweening.play("TweenText")
 		sfx.play()
 
@@ -77,7 +76,6 @@ func _on_button_button_down() -> void:
 	pressed.show()
 	not_pressed.hide()
 	Input.action_press("Dialogue")
-	showarrow = false
 
 
 func _on_button_button_up() -> void:
