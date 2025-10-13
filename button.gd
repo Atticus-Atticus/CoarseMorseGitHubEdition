@@ -22,7 +22,7 @@ var output_message = str
 var morse = false
 var time: float = 0
 var timebetween: float = 0
-var difficulty: float = 2
+var difficulty: float = 3 - (Globals.day * .2)
 var fading = true
 var fading_timer: int
 var fad_modulation = 1
@@ -84,7 +84,7 @@ func _ready() -> void:
 		firstday_res = [false,false,false,false,false,false,false,false,false,false]
 
 	if Globals.day == 3:
-		firstday = ["WAR DECLARED","HIGH ALERT","UNITS ENGAGED","STAND UNTIL ORDERS","MORAL LOW","GNRL E E REMOVED","AVOID ENGAGEMNT","WAR DECLARED","WAR DECLARED","DFND THE HOME","HIGH ALERT","5N TO NE","7J TO SW","8N TO SE","2N WAIT","EASTER EGG"]
+		firstday = ["WAR DECLARED","HIGH ALERT","UNITS ENGAGED","STAND TIL ORDERS","MORAL LOW","GNRL E E REMOVED","AVOID ENGAGEMNT","WAR DECLARED","WAR DECLARED","DFND THE HOME","HIGH ALERT","5N TO NE","7J TO SW","8N TO SE","2N WAIT","EASTER EGG"]
 		firstday_res = [false,false,false,false,true,true,true,false,false,false,false,true,false,false,true,true]
 
 	if Globals.day == 4:
@@ -100,7 +100,7 @@ func _ready() -> void:
 		firstday_res = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]
 
 	if Globals.day > 6:
-		firstday = ["5B TO SE","7H TO NW","8B WAIT","2N WAIT","AWAIT ORDERS","MILL EXERSIZES","MEDIUM ALERT","RSSTNCE NOT TOL","RAPID ADVANCE","SCORCH EARTH","ALL UNTS PUSH","SURE VICTORY","SURE VICTORY","2D PUSH","WARNING AMBUSHES","GUERRILLAS FOUND","RAIZE GROZNA","NO TOLERANCE","ALL UNITS PUSH","WAR DECLARED","HIGH ALERT","UNITS ENGAGED","STAND UNTIL ORDERS","AVOID ENGAGEMNT","WAR DECLARED","WAR DECLARED","DFND THE HOME","HIGH ALERT","5N TO NE","7J TO SW","8N TO SE","2N WAIT"]
+		firstday = ["5B TO SE","7H TO NW","8B WAIT","2N WAIT","AWAIT ORDERS","MILL EXERSIZES","MEDIUM ALERT","RSSTNCE NOT TOL","RAPID ADVANCE","SCORCH EARTH","ALL UNTS PUSH","SURE VICTORY","SURE VICTORY","2D PUSH","WARNING AMBUSHES","GUERRILLAS FOUND","RAIZE GROZNA","NO TOLERANCE","ALL UNITS PUSH","WAR DECLARED","HIGH ALERT","UNITS ENGAGED","STAND TIL ORDERS","AVOID ENGAGEMNT","WAR DECLARED","WAR DECLARED","DFND THE HOME","HIGH ALERT","5N TO NE","7J TO SW","8N TO SE","2N WAIT"]
 		firstday_res = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -244,7 +244,6 @@ func _process(delta):
 				if goals_array[i] != "":
 					if outputmessage.text == morse_code_translator[goals_array[i][0]]:
 						goal_wordz = goals_array[i]
-						print(goal_wordz)
 						goal_position = i
 						textoutput.text = ""
 		if fading and outputmessage.text == " ━ ● ━ ━ ● ━ ● ━ ━ ● ●":
@@ -328,7 +327,7 @@ func _on_button_up() -> void:
 	var time_passed = release_time - time
 	if time_passed > 0 and time_passed < .2 :
 		outputmessage.text += " ●"
-	elif time_passed < 4 :
+	elif time_passed < 2 :
 		outputmessage.text += " ━"
 	else:
 		outputmessage.text            +=  " ?"

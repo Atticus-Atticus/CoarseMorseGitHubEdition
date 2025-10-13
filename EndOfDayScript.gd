@@ -14,8 +14,12 @@ extends Node
 var textline = 0
 
 func _ready() -> void:
+	text.text = ("You have: £ " + (str(Globals.money)) + " You have paid £ " + (str(Globals.rent)) + " in rent Press the telegraph machine to continue.")
 	if Globals.day == 3:
 		$"Resist Msg".show()
+	elif Globals.day == 6:
+		$"Resist Msg".show()
+		$"Resist Msg".text = "you are found working with the resistance and sentanced to death by firing squad                  ENDLESS MODE"
 	else:
 		$"Resist Msg".hide()
 	
@@ -34,8 +38,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Dialogue") and textline == 1:
 		get_tree().change_scene_to_file("res://node_2d.tscn")
 
-	money.text = str(Globals.money)
-	rent.text = str(Globals.rent)
+	
 
 func _on_button_button_down() -> void:
 	pressed.show()

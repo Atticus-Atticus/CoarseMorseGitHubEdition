@@ -27,30 +27,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Money:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Rent:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_3o0m6"]
 resource_name = "TweenText"
@@ -66,30 +42,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Money:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.66667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Rent:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 2.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_crkoc"]
@@ -154,9 +106,9 @@ texture = ExtResource("2_ak8yy")
 
 [node name="Label" type="Label" parent="Textbox"]
 custom_minimum_size = Vector2(1, 1)
-offset_left = 120.0
+offset_left = 522.0
 offset_top = 315.0
-offset_right = 1840.0
+offset_right = 1386.0
 offset_bottom = 734.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -189,23 +141,6 @@ Encode and send our messages in black to change the outcome of this war for the 
 label_settings = SubResource("LabelSettings_nvuix")
 autowrap_mode = 2
 clip_text = true
-
-[node name="Money" type="Label" parent="Textbox"]
-visible = false
-offset_left = 1109.0
-offset_top = 401.0
-offset_right = 1256.0
-offset_bottom = 502.0
-text = "14.50"
-label_settings = ExtResource("3_8ac1f")
-
-[node name="Rent" type="Label" parent="Textbox"]
-offset_left = 1003.0
-offset_top = 492.0
-offset_right = 1150.0
-offset_bottom = 539.0
-text = "14.50"
-label_settings = ExtResource("3_8ac1f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Textbox"]
 libraries = {

@@ -201,7 +201,7 @@ label_settings = SubResource("LabelSettings_l0qlq")
 vertical_alignment = 1
 
 [node name="Output2" type="Label" parent="."]
-z_index = 5
+z_index = 8
 offset_left = 82.0
 offset_top = 43.0
 offset_right = 1838.0
@@ -293,7 +293,7 @@ label_settings = SubResource("LabelSettings_sibap")
 autowrap_mode = 3
 
 [node name="Array1" type="Sprite2D" parent="."]
-position = Vector2(-354, 353)
+position = Vector2(-354, 363)
 texture = ExtResource("7_04g4h")
 script = ExtResource("9_7cq07")
 
@@ -305,6 +305,7 @@ offset_bottom = 31.0
 text = "SOS"
 label_settings = ExtResource("8_c28an")
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Array1"]
 offset_left = 161.0
@@ -313,9 +314,10 @@ offset_right = 214.0
 offset_bottom = 18.0
 text = "100"
 label_settings = ExtResource("10_gymqw")
+metadata/_edit_use_anchors_ = true
 
 [node name="Resist Box1" type="Sprite2D" parent="."]
-position = Vector2(-352, 351)
+position = Vector2(-352, 361)
 scale = Vector2(1, 1.19767)
 texture = ExtResource("11_or1fb")
 script = ExtResource("9_7cq07")
@@ -328,6 +330,7 @@ offset_bottom = 31.0
 text = "SUS"
 label_settings = ExtResource("12_nu0u8")
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Resist Box1"]
 offset_left = 161.0
@@ -336,13 +339,14 @@ offset_right = 214.0
 offset_bottom = 18.0
 text = "100"
 label_settings = ExtResource("13_mpumn")
+metadata/_edit_use_anchors_ = true
 
 [node name="Sketch1759697098134" type="Sprite2D" parent="Resist Box1"]
 position = Vector2(3246, 1332.58)
 texture = ExtResource("14_xms36")
 
 [node name="Array2" type="Sprite2D" parent="."]
-position = Vector2(-354, 440)
+position = Vector2(-354, 450)
 texture = ExtResource("7_04g4h")
 script = ExtResource("9_7cq07")
 
@@ -354,6 +358,7 @@ offset_bottom = 31.0
 text = "MAYDAY"
 label_settings = ExtResource("8_c28an")
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Array2"]
 offset_left = 161.0
@@ -362,9 +367,10 @@ offset_right = 214.0
 offset_bottom = 22.0
 text = "100"
 label_settings = ExtResource("10_gymqw")
+metadata/_edit_use_anchors_ = true
 
 [node name="Resist Box2" type="Sprite2D" parent="."]
-position = Vector2(-352, 439)
+position = Vector2(-352, 449)
 scale = Vector2(1, 1.19767)
 texture = ExtResource("11_or1fb")
 script = ExtResource("9_7cq07")
@@ -377,6 +383,7 @@ offset_bottom = 31.0
 text = "SOS"
 label_settings = ExtResource("12_nu0u8")
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Resist Box2"]
 offset_left = 161.0
@@ -385,9 +392,10 @@ offset_right = 214.0
 offset_bottom = 18.0
 text = "100"
 label_settings = ExtResource("13_mpumn")
+metadata/_edit_use_anchors_ = true
 
 [node name="Array3" type="Sprite2D" parent="."]
-position = Vector2(-354, 527)
+position = Vector2(-354, 537)
 texture = ExtResource("7_04g4h")
 script = ExtResource("9_7cq07")
 
@@ -398,6 +406,7 @@ offset_right = 141.0
 offset_bottom = 31.0
 label_settings = ExtResource("8_c28an")
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Array3"]
 offset_left = 161.0
@@ -406,9 +415,10 @@ offset_right = 214.0
 offset_bottom = 22.0
 text = "100"
 label_settings = ExtResource("10_gymqw")
+metadata/_edit_use_anchors_ = true
 
 [node name="Resist Box3" type="Sprite2D" parent="."]
-position = Vector2(-352, 526)
+position = Vector2(-352, 536)
 scale = Vector2(1, 1.19767)
 texture = ExtResource("11_or1fb")
 script = ExtResource("9_7cq07")
@@ -421,6 +431,7 @@ offset_bottom = 31.0
 text = "SOS"
 label_settings = ExtResource("12_nu0u8")
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Resist Box3"]
 offset_left = 161.0
@@ -429,9 +440,10 @@ offset_right = 214.0
 offset_bottom = 18.0
 text = "100"
 label_settings = ExtResource("13_mpumn")
+metadata/_edit_use_anchors_ = true
 
 [node name="Array4" type="Sprite2D" parent="."]
-position = Vector2(-354, 610)
+position = Vector2(-354, 620)
 texture = ExtResource("7_04g4h")
 script = ExtResource("9_7cq07")
 
@@ -442,6 +454,7 @@ offset_right = 147.0
 offset_bottom = 31.0
 label_settings = ExtResource("8_c28an")
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Array4"]
 offset_left = 161.0
@@ -450,9 +463,10 @@ offset_right = 214.0
 offset_bottom = 22.0
 text = "100"
 label_settings = ExtResource("10_gymqw")
+metadata/_edit_use_anchors_ = true
 
 [node name="Resist Box4" type="Sprite2D" parent="."]
-position = Vector2(-352, 607)
+position = Vector2(-352, 617)
 scale = Vector2(1, 1.19767)
 texture = ExtResource("11_or1fb")
 script = ExtResource("9_7cq07")
@@ -465,6 +479,7 @@ offset_bottom = 31.0
 text = "SOS"
 label_settings = ExtResource("12_nu0u8")
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Resist Box4"]
 offset_left = 161.0
@@ -473,9 +488,10 @@ offset_right = 214.0
 offset_bottom = 18.0
 text = "100"
 label_settings = ExtResource("13_mpumn")
+metadata/_edit_use_anchors_ = true
 
 [node name="Array5" type="Sprite2D" parent="."]
-position = Vector2(-354, 691)
+position = Vector2(-354, 701)
 texture = ExtResource("7_04g4h")
 script = ExtResource("9_7cq07")
 
@@ -486,6 +502,7 @@ offset_right = 145.0
 offset_bottom = 31.0
 label_settings = ExtResource("8_c28an")
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Array5"]
 offset_left = 161.0
@@ -494,9 +511,10 @@ offset_right = 214.0
 offset_bottom = 22.0
 text = "100"
 label_settings = ExtResource("10_gymqw")
+metadata/_edit_use_anchors_ = true
 
 [node name="Resist Box5" type="Sprite2D" parent="."]
-position = Vector2(-352, 691)
+position = Vector2(-352, 701)
 scale = Vector2(1, 1.19767)
 texture = ExtResource("11_or1fb")
 script = ExtResource("9_7cq07")
@@ -509,6 +527,7 @@ offset_bottom = 31.0
 text = "SOS"
 label_settings = ExtResource("12_nu0u8")
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Resist Box5"]
 offset_left = 161.0
@@ -517,6 +536,7 @@ offset_right = 214.0
 offset_bottom = 18.0
 text = "100"
 label_settings = ExtResource("13_mpumn")
+metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 3

@@ -59,7 +59,7 @@ func _process(delta: float) -> void:
 		sfx.play()
 
 	if Input.is_action_just_pressed("Dialogue") and textline == 7:
-		text.set_text("God speed, Operator. The war depends on you. Command out.")
+		text.set_text("God speed, Operator. The army depends on you. Command out.")
 		tweening.play("TweenText")
 		sfx.play()
 	
@@ -69,8 +69,12 @@ func _process(delta: float) -> void:
 		sfx.play()
 
 	if Input.is_action_just_pressed("Dialogue") and textline == 9:
-		get_tree().change_scene_to_file("res://node_2d.tscn")
+		text.set_text(" BY Robert and Callum .")
+		tweening.play("TweenText")
+		sfx.play()
 
+	if Input.is_action_just_pressed("Dialogue") and textline == 10:
+		get_tree().change_scene_to_file("res://node_2d.tscn")
 
 func _on_button_button_down() -> void:
 	pressed.show()
