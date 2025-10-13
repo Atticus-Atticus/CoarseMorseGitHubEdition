@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://3eu1c2gakons"]
+[gd_scene load_steps=16 format=3 uid="uid://3eu1c2gakons"]
 
 [ext_resource type="Script" path="res://EndOfDayScript.gd" id="1_ti30k"]
 [ext_resource type="Texture2D" uid="uid://1kh6arxudsyj" path="res://sketch1759748468960.png" id="2_ak8yy"]
@@ -86,6 +86,9 @@ _data = {
 "RESET": SubResource("Animation_cbuy8"),
 "fadeout": SubResource("Animation_oxciv")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_liplw"]
+font_size = 106
 
 [node name="EndOfDayScene" type="Node2D"]
 
@@ -183,6 +186,14 @@ visibility_layer = 31
 offset_right = 1930.0
 offset_bottom = 1088.0
 color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 1179.0
+offset_top = 1363.0
+offset_right = 2340.0
+offset_bottom = 1509.0
+text = "Don't use full screen!!!!"
+label_settings = SubResource("LabelSettings_liplw")
 
 [connection signal="animation_finished" from="Textbox/AnimationPlayer" to="Textbox" method="_on_animation_finished"]
 [connection signal="button_down" from="Button" to="Textbox" method="_on_button_button_down"]
